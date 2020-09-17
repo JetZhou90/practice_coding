@@ -1,5 +1,12 @@
 #include <fstream>
 #include <iostream>
+#include <csignal>
+#ifdef WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+
 using namespace std;
 
 /*
@@ -108,5 +115,52 @@ void memoryTest() {
 		delete[] array[i];
 	}
 	delete[] array;
+
+}
+
+/*
+# 和 ## 运算符
+*/
+#define MKSTR( x ) #x // # 运算符会把 replacement-text 令牌转换为用引号引起来的字符串。
+#define concat(a, b) a ## b //
+
+
+/*
+C++ 中的预定义宏
+__LINE__	这会在程序编译时包含当前行号。
+__FILE__	这会在程序编译时包含当前文件名。
+__DATE__	这会包含一个形式为 month/day/year 的字符串，它表示把源文件转换为目标代码的日期。
+__TIME__	这会包含一个形式为 hour:minute:second 的字符串，它表示程序被编译的时间。
+*/
+
+void PracticeTest() {
+	cout << MKSTR(HELLO C++) << endl;
+	int xy = 100;
+	cout << concat(x, y)<<endl; // concat(x, y) 将x,y转换成xy
+	cout << "Value of __LINE__ : " << __LINE__ << endl;
+	cout << "Value of __FILE__ : " << __FILE__ << endl;
+	cout << "Value of __DATE__ : " << __DATE__ << endl;
+	cout << "Value of __TIME__ : " << __TIME__ << endl;
+}
+
+void signalHandler(int signum)
+{
+	cout << "Interrupt signal (" << signum << ") received.\n";
+	// 清理并关闭
+	// 终止程序  
+	exit(signum);
+}
+
+void signalTest() {
+	int i = 0;
+	signal(SIGINT, signalHandler);
+
+	while (++i) {
+		cout << "Going to sleep...." << endl;
+		if (i == 100) {
+			raise(SIGINT);
+		}
+		Sleep(5);
+	}
 
 }

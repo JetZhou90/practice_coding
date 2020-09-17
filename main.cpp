@@ -8,6 +8,7 @@ int main()
 	//SwapTest();
 	//SructureTest();
 	//try_catch_test();
-	memoryTest();
+	//memoryTest();
+	threadTest();
 	int i = func();
 }

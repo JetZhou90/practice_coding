@@ -17,3 +17,6 @@ void MutiExtendTest();
 void IOtest();
 void try_catch_test();
 void memoryTest();
+void PracticeTest();
+void signalTest();
+void threadTest();
