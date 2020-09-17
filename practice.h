@@ -20,3 +20,4 @@ void memoryTest();
 void PracticeTest();
 void signalTest();
 void threadTest();
+void vectorTest();

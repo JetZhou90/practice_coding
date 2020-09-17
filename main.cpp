@@ -9,6 +9,6 @@ int main()
 	//SructureTest();
 	//try_catch_test();
 	//memoryTest();
-	threadTest();
+	vectorTest();
 	int i = func();
 }
