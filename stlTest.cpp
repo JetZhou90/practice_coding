@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
-
-
 
 void vectorOperate() {
 	vector<int> vec;
@@ -44,7 +43,6 @@ int vector_demo(void)
 	cout << right[5] << endl;
 	vector<int> biggest(pick_vector_with_biggest_fifth_element(left, right));
 	cout << "the biggest 5th element is "<<biggest[5] << endl;
-
 	return 0;
 }
 
@@ -58,7 +56,7 @@ void sortVector() {
 		num++;
 	}
 	cout << "Sorted: " << endl;
-	sort(vec.begin(), vec.end());
+	sort(vec.begin(), vec.end(),greater<int>());
 	int i = 0;
 	for (i = 0; i < vec.size(); i++) {
 		cout << vec[i] << endl;;
@@ -67,7 +65,5 @@ void sortVector() {
 
 
 void vectorTest() {
-	
 	sortVector();
-
 }

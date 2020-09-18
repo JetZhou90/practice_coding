@@ -21,3 +21,6 @@ void PracticeTest();
 void signalTest();
 void threadTest();
 void vectorTest();
+void dlib_test();
+int facedetection();
+int torchTest();
